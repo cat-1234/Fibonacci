@@ -3,9 +3,9 @@ class Fib : public Fib<N - 1, T> {
 public:
     T value;
     T prevValue;
-    constexpr Fib() : 
-      value(static_cast<Fib<N - 1, T>*>(this)->prevValue + static_cast<Fib<N - 1, T>*>(this)->value),
-      prevValue(static_cast<Fib<N - 1, T>*>(this)->value)
+    constexpr Fib()
+        : value(static_cast<Fib<N - 1, T>*>(this)->prevValue + static_cast<Fib<N - 1, T>*>(this)->value),
+          prevValue(static_cast<Fib<N - 1, T>*>(this)->value)
     {}
 };
 
