@@ -1,11 +1,11 @@
 template <int N, typename T>
 class Fib : public Fib<N - 1, T> {
 public:
-    T value;
     T prevValue;
+    T value;
     constexpr Fib()
-        : value(static_cast<Fib<N - 1, T>*>(this)->prevValue + static_cast<Fib<N - 1, T>*>(this)->value),
-          prevValue(static_cast<Fib<N - 1, T>*>(this)->value)
+        : prevValue(static_cast<Fib<N - 1, T>*>(this)->value),
+          value(static_cast<Fib<N - 1, T>*>(this)->prevValue + prevValue)
     {}
 };
 
@@ -19,9 +19,9 @@ public:
 template <typename T>
 class Fib<1, T> {
 public:
-    T value;
     T prevValue;
-    constexpr Fib() : value(1), prevValue(1) {}
+    T value;
+    constexpr Fib() : prevValue(1), value(1) {}
 };
 
 template <int N, typename T>
